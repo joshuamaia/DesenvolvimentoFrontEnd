@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Super Calculador</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <div class="row container">
+      <form class="col s12">
+        <div class="card blue-grey darken-4 card-container">
+          <div class="card-content white-text">
+            <span class="card-title center-align titulo">Super Calculador</span>
+          </div>
+          <div class="card-content">
+            <div class="row input-container">
+              <div class="input-field col m6 s12 input-entrada">
+                <input
+                  onchange="changeNumero()"
+                  placeholder="Digite o número A..."
+                  id="numeroa"
+                  type="text"
+                  class="validate"
+                />
+                <label for="numeroa">Número A</label>
+              </div>
+              <div class="input-field col m6 s12 input-entrada">
+                <input
+                  onchange="changeNumero()"
+                  id="numerob"
+                  placeholder="Digite o número B..."
+                  type="text"
+                  class="validate"
+                />
+                <label for="numerob">Número B</label>
+              </div>
+            </div>      
+            <div class="card blue-grey darken-4 card-container-calculos">
+              <div class="card-content white-text">
+                <span class="card-title center-align titulo-calculos">Cálculos</span>
+              </div>
+              <div class="card-content">      
+            <div class="row input-container-resultado">
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="somaab"
+                  type="text"
+                  class="validate"
+                />
+                <label for="somaab">Soma (A + B)</label>
+              </div>
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="subtracaoab"
+                  type="text"
+                  class="validate"
+                />
+                <label for="subtracaoab">Subtração (A - B)</label>
+              </div>
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="subtracaoba"
+                  type="text"
+                  class="validate"
+                />
+                <label for="subtracaoba">Subtração (B - A)</label>
+              </div>
+            </div>
+            <div class="row input-container-resultado">
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="multiplicacaoab"
+                  type="text"
+                  class="validate"
+                />
+                <label for="multiplicacaoab">Multiplicação (A x B)</label>
+              </div>
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="divisaoab"
+                  type="text"
+                  class="validate"
+                />
+                <label for="divisaoab">Divisão (A &#247 B)</label>
+              </div>
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="divisaoba"
+                  type="text"
+                  class="validate"
+                />
+                <label for="divisaoba">Divisão (B &#247 A)</label>
+              </div>
+            </div>
+            <div class="row input-container-resultado">
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="quadradoa"
+                  type="text"
+                  class="validate"
+                />
+                <label for="quadradoa">Quadrado de A (A²)</label>
+              </div>
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="quadradob"
+                  type="text"
+                  class="validate"
+                />
+                <label for="quadradob">Quadrado de B (B²)</label>
+              </div>
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="divisoresa"
+                  type="text"
+                  class="validate"
+                />
+                <label for="divisoresa">Divisores inteiros de A</label>
+              </div>
+            </div>
+            <div class="row input-container-resultado">
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="divisoresb"
+                  type="text"
+                  class="validate"
+                />
+                <label for="divisoresb">Divisores inteiros de B</label>
+              </div>
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="fatoriala"
+                  type="text"
+                  class="validate"
+                />
+                <label for="fatoriala">Fatorial de A (A!)</label>
+              </div>
+              <div class="input-field col m4 s12 input-resultado">
+                <input
+                  disabled
+                  value="0"
+                  id="fatorialb"
+                  type="text"
+                  class="validate"
+                />
+                <label for="fatorialb">Fatorial de B (B!)</label>
+              </div>
+
+            </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
