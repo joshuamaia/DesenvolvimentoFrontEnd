@@ -3,66 +3,66 @@ body {
 }
 
 .input-entrada input {
-  color: #add8e6 !important;
+  color: #800080 !important;
   font-size: 18px !important;
   margin: 5px !important;
 }
 
 .input-entrada label {
-  color: #b0e2ff !important;
+  color: #4b0082 !important;
   font-size: 18px !important;
   margin: 5px !important;
 }
 
 .input-container {
   padding: 10px;
-  box-shadow: 0 0 4px 4px #b0e2ff;
+  box-shadow: 0 0 4px 4px #4b0082;
 }
 
 .input-resultado label {
-  color: #ee82ee !important;
+  color: #800080 !important;
   font-size: 18px !important;
   margin: 5px !important;
 }
 
 .input-resultado input {
-  color: #dda0dd !important;
+  color: #9932cc !important;
   font-size: 18px !important;
   margin: 5px !important;
 }
 
 .input-container-resultado {
   padding: 10px;
-  box-shadow: 0 0 4px 4px #ee82ee;
+  box-shadow: 0 0 4px 4px #800080;
 }
 
 .card-container {
   margin-top: 10px !important;
-  box-shadow: 0 0 4px 4px #b0e2ff !important;
+  box-shadow: 0 0 4px 4px #4b0082 !important;
 }
 
 .card-container-calculos {
   margin-top: 10px !important;
-  box-shadow: 0 0 4px 4px #ee82ee !important;
+  box-shadow: 0 0 4px 4px #800080 !important;
 }
 
 .titulo {
   font-size: 40px !important;
-  color: #b0e2ff !important;
+  color: #4b0082 !important;
 }
 
 .titulo-calculos {
   font-size: 40px !important;
-  color: #ee82ee !important;
+  color: #800080 !important;
 }
 
 @media (max-width: 576px) {
   .titulo {
     font-size: 25px !important;
-    color: #b0e2ff !important;
+    color: #4b0082 !important;
   }
   .titulo-calculos {
     font-size: 25px !important;
-    color: #ee82ee !important;
+    color: #800080 !important;
   }
 }
