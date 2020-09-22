@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Search DEVS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <div class="row container">
+      <form class="col s12">
+        <div class="card card-container">
+          <div class="card-content white-text">
+            <span class="card-title center-align titulo">Search Devs</span>
+          </div>
+          <div class="card-content">
+            <div class="row input-container">
+              <div class="input-field col m12 s12 input-entrada">
+                <input
+                  onkeyup="change()"
+                  placeholder="Pesquisa por nome..."
+                  id="nome"
+                  type="text"
+                  class="validate"
+                />
+                <label for="nome">Nome</label>
+              </div>
+              <div class="input-field col m3 s12 input-entrada">
+                <label>
+                  <input onchange="change()" id="java" type="checkbox" />
+                  <span>Java</span>
+                </label>
+              </div>
+              <div class="input-field col m3 s12 input-entrada">
+                <label>
+                  <input onchange="change()" id="javascript" type="checkbox" />
+                  <span>JavaScript</span>
+                </label>
+              </div>
+              <div class="input-field col m3 s12 input-entrada">
+                <label>
+                  <input onchange="change()" id="python" type="checkbox" />
+                  <span>Python</span>
+                </label>
+              </div>
+              <div class="input-field col m3 s12 input-entrada">
+                <p>
+                  <label>
+                    <input
+                      onchange="change()"
+                      name="opcao"
+                      value="E"
+                      type="radio"
+                      checked
+                    />
+                    <span>E</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input
+                      onchange="change()"
+                      name="opcao"
+                      value="OU"
+                      type="radio"
+                    />
+                    <span>OU</span>
+                  </label>
+                </p>
+              </div>
+            </div>
+            <div class="card card-container-resultados">
+              <div class="card-content white-text">
+                <span
+                  id="quantdevs"
+                  class="card-title center-align titulo-resultados"
+                  >0 Devs encontrados</span
+                >
+              </div>
+              <div class="card-content">
+                <div id="resultados" class="row card-resultados"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
