@@ -221,7 +221,7 @@ function pesquisar() {
     var span = document.createElement("span");
     div.className = "col m5 s12";
     div.style =
-      "display: flex; justify-content: flex-start; align-items: center; border: 1px solid #4b0082; border-radius: 4px; margin: 5px;";
+      "display: flex; justify-content: flex-start; align-items: center; border: 2px solid #4b0082; border-radius: 4px; margin: 5px;  background: #fff;";
     divLanguage.style = "border-radius: 4px; margin: 5px;";
     img.src = `${element.picture}`;
     img.style = "border-radius: 50%;width: 50px; height: 50px; margin: 5px;";
@@ -244,5 +244,9 @@ function pesquisar() {
   });
   const quantdevs = document.querySelector("#quantdevs");
 
-  quantdevs.textContent = filterList.length + " Devs encontrados";
+  if (filterList.length === 1) {
+    quantdevs.textContent = filterList.length + " Dev encontrado";
+  } else {
+    quantdevs.textContent = filterList.length + " Devs encontrados";
+  }
 }
