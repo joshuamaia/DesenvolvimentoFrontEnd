@@ -13,10 +13,7 @@ async function carregaAPI() {
   const json = await api.json();
 
   this.lista = json;
-}
-
-function change(event) {
-  pesquisar();
+  change();
 }
 
 function getRVBN(rName) {
@@ -27,7 +24,7 @@ function getRVBN(rName) {
   return "";
 }
 
-function pesquisar() {
+function change() {
   const inputValue = document.querySelector("#nome");
   const java = document.querySelector("#java");
   const javascript = document.querySelector("#javascript");
@@ -51,7 +48,10 @@ function pesquisar() {
             (p) => p.language === "Python"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             temJava &&
             temPythom &&
             temJavaScript
@@ -66,7 +66,10 @@ function pesquisar() {
           );
 
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             temJava &&
             temJavaScript
           );
@@ -79,7 +82,10 @@ function pesquisar() {
             (p) => p.language === "Python"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             temJava &&
             temPythom
           );
@@ -92,7 +98,10 @@ function pesquisar() {
             (p) => p.language === "Python"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             temPythom &&
             temJavaScript
           );
@@ -102,7 +111,10 @@ function pesquisar() {
             (p) => p.language === "Java"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 && temJava
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 && temJava
           );
         }
         if (javascript.checked) {
@@ -111,7 +123,10 @@ function pesquisar() {
           );
 
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             temJavaScript
           );
         }
@@ -120,7 +135,10 @@ function pesquisar() {
             (p) => p.language === "Python"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 && temPythom
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 && temPythom
           );
         }
       } else if (opcao === "OU") {
@@ -130,7 +148,10 @@ function pesquisar() {
             (p) => p.language === "Java"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 && temJava
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 && temJava
           );
         }
         if (!java.checked && javascript.checked && !python.checked) {
@@ -139,7 +160,10 @@ function pesquisar() {
             (p) => p.language === "JavaScript"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             temJavaScript
           );
         }
@@ -149,7 +173,10 @@ function pesquisar() {
             (p) => p.language === "Python"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 && temPythom
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 && temPythom
           );
         }
         if ((java.checked || javascript.checked) && !python.checked) {
@@ -161,7 +188,10 @@ function pesquisar() {
           );
 
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             (temJava || temJavaScript)
           );
         }
@@ -173,7 +203,10 @@ function pesquisar() {
             (p) => p.language === "Python"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             (temJava || temPythom)
           );
         }
@@ -185,7 +218,10 @@ function pesquisar() {
             (p) => p.language === "Python"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             (temPythom || temJavaScript)
           );
         }
@@ -200,7 +236,10 @@ function pesquisar() {
             (p) => p.language === "Python"
           );
           return (
-            row.name.toLowerCase().indexOf(nome.toLowerCase()) > -1 &&
+            row.name
+              .normalize("NFD")
+              .toLowerCase()
+              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
             (temJava || temPythom || temJavaScript)
           );
         } else {
@@ -221,10 +260,10 @@ function pesquisar() {
     var span = document.createElement("span");
     div.className = "col m5 s12";
     div.style =
-      "display: flex; justify-content: flex-start; align-items: center; border: 2px solid #4b0082; border-radius: 4px; margin: 5px;  background: #fff;";
+      "display: flex; justify-content: flex-start; align-items: center; border: 4px solid #4b0082; border-radius: 4px; margin: 5px;  background: #fff;";
     divLanguage.style = "border-radius: 4px; margin: 5px;";
     img.src = `${element.picture}`;
-    img.style = "border-radius: 50%;width: 50px; height: 50px; margin: 5px;";
+    img.style = "border-radius: 50%;width: 100px; height: 100px; margin: 5px;";
     span.textContent = `${element.name}`;
     divLanguage.appendChild(span);
     var br = document.createElement("br");

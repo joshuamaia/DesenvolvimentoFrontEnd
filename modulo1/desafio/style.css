@@ -43,7 +43,8 @@ body {
 }
 
 .card-titulo-resultados {
-  background-color: #800080;
+  background-color: #9370db;
+  border-bottom: 2px solid #4b0082;
 }
 
 .card-container {
@@ -53,7 +54,7 @@ body {
 
 .card-container-resultados {
   margin-top: 10px !important;
-  box-shadow: 0 0 4px 4px #800080 !important;
+  box-shadow: 0 0 4px 4px #4b0082 !important;
 }
 
 .card-resultados {
