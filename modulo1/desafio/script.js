@@ -13,6 +13,12 @@ async function carregaAPI() {
   const json = await api.json();
 
   this.lista = json;
+
+  this.lista = this.lista.map((e) => {
+    const linguagensLista = e.programmingLanguages.map((l) => l.language);
+    return { ...e, linguagensLista };
+  });
+
   change();
 }
 
@@ -24,12 +30,50 @@ function getRVBN(rName) {
   return "";
 }
 
+function comparaArrayAnd(lista1, lista2) {
+  if (lista2.length === 1) {
+    return lista1.includes(lista2[0]);
+  }
+
+  if (lista1.length != lista2.length) {
+    return false;
+  }
+
+  for (let i = 0; i < lista1.length; i++) {
+    if (!lista2.includes(lista1[i])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function comparaArrayOr(lista1, lista2) {
+  for (let i = 0; i < lista1.length; i++) {
+    if (lista2.includes(lista1[i])) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 function change() {
   const inputValue = document.querySelector("#nome");
   const java = document.querySelector("#java");
   const javascript = document.querySelector("#javascript");
   const python = document.querySelector("#python");
   const opcao = getRVBN("opcao");
+  const linguagensSearch = [];
+  if (java.checked) {
+    linguagensSearch.push("Java");
+  }
+  if (javascript.checked) {
+    linguagensSearch.push("JavaScript");
+  }
+  if (python.checked) {
+    linguagensSearch.push("Python");
+  }
 
   const nome = inputValue.value;
 
@@ -37,215 +81,21 @@ function change() {
   const filterList = this.lista
     .filter((row) => {
       if (opcao === "E") {
-        if (java.checked && javascript.checked && python.checked) {
-          var temJava = row.programmingLanguages.find(
-            (p) => p.language === "Java"
-          );
-          var temJavaScript = row.programmingLanguages.find(
-            (p) => p.language === "JavaScript"
-          );
-          var temPythom = row.programmingLanguages.find(
-            (p) => p.language === "Python"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            temJava &&
-            temPythom &&
-            temJavaScript
-          );
-        }
-        if (java.checked && javascript.checked) {
-          var temJava = row.programmingLanguages.find(
-            (p) => p.language === "Java"
-          );
-          var temJavaScript = row.programmingLanguages.find(
-            (p) => p.language === "JavaScript"
-          );
-
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            temJava &&
-            temJavaScript
-          );
-        }
-        if (java.checked && python.checked) {
-          var temJava = row.programmingLanguages.find(
-            (p) => p.language === "Java"
-          );
-          var temPythom = row.programmingLanguages.find(
-            (p) => p.language === "Python"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            temJava &&
-            temPythom
-          );
-        }
-        if (javascript.checked && python.checked) {
-          var temJavaScript = row.programmingLanguages.find(
-            (p) => p.language === "JavaScript"
-          );
-          var temPythom = row.programmingLanguages.find(
-            (p) => p.language === "Python"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            temPythom &&
-            temJavaScript
-          );
-        }
-        if (java.checked) {
-          var temJava = row.programmingLanguages.find(
-            (p) => p.language === "Java"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 && temJava
-          );
-        }
-        if (javascript.checked) {
-          var temJavaScript = row.programmingLanguages.find(
-            (p) => p.language === "JavaScript"
-          );
-
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            temJavaScript
-          );
-        }
-        if (python.checked) {
-          var temPythom = row.programmingLanguages.find(
-            (p) => p.language === "Python"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 && temPythom
-          );
-        }
+        return (
+          row.name
+            .normalize("NFD")
+            .toLowerCase()
+            .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
+          comparaArrayAnd(row.linguagensLista, linguagensSearch)
+        );
       } else if (opcao === "OU") {
-        if (java.checked && !javascript.checked && !python.checked) {
-          console.log("Só Java");
-          var temJava = row.programmingLanguages.find(
-            (p) => p.language === "Java"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 && temJava
-          );
-        }
-        if (!java.checked && javascript.checked && !python.checked) {
-          console.log("Só JavaScript");
-          var temJavaScript = row.programmingLanguages.find(
-            (p) => p.language === "JavaScript"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            temJavaScript
-          );
-        }
-        if (!java.checked && !javascript.checked && python.checked) {
-          console.log("Só Python");
-          var temPythom = row.programmingLanguages.find(
-            (p) => p.language === "Python"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 && temPythom
-          );
-        }
-        if ((java.checked || javascript.checked) && !python.checked) {
-          var temJava = row.programmingLanguages.find(
-            (p) => p.language === "Java"
-          );
-          var temJavaScript = row.programmingLanguages.find(
-            (p) => p.language === "JavaScript"
-          );
-
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            (temJava || temJavaScript)
-          );
-        }
-        if ((java.checked || python.checked) && !javascript.checked) {
-          var temJava = row.programmingLanguages.find(
-            (p) => p.language === "Java"
-          );
-          var temPythom = row.programmingLanguages.find(
-            (p) => p.language === "Python"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            (temJava || temPythom)
-          );
-        }
-        if ((javascript.checked || python.checked) && !java.checked) {
-          var temJavaScript = row.programmingLanguages.find(
-            (p) => p.language === "JavaScript"
-          );
-          var temPythom = row.programmingLanguages.find(
-            (p) => p.language === "Python"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            (temPythom || temJavaScript)
-          );
-        }
-        if (java.checked || javascript.checked || python.checked) {
-          var temJava = row.programmingLanguages.find(
-            (p) => p.language === "Java"
-          );
-          var temJavaScript = row.programmingLanguages.find(
-            (p) => p.language === "JavaScript"
-          );
-          var temPythom = row.programmingLanguages.find(
-            (p) => p.language === "Python"
-          );
-          return (
-            row.name
-              .normalize("NFD")
-              .toLowerCase()
-              .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-            (temJava || temPythom || temJavaScript)
-          );
-        } else {
-          console.log("Entrei no returno false");
-          return false;
-        }
+        return (
+          row.name
+            .normalize("NFD")
+            .toLowerCase()
+            .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
+          comparaArrayOr(row.linguagensLista, linguagensSearch)
+        );
       }
     })
     .sort((a, b) => {
