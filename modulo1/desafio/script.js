@@ -30,34 +30,6 @@ function getRVBN(rName) {
   return "";
 }
 
-function comparaArrayAnd(lista1, lista2) {
-  if (lista2.length === 1) {
-    return lista1.includes(lista2[0]);
-  }
-
-  if (lista1.length != lista2.length) {
-    return false;
-  }
-
-  for (let i = 0; i < lista1.length; i++) {
-    if (!lista2.includes(lista1[i])) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function comparaArrayOr(lista1, lista2) {
-  for (let i = 0; i < lista1.length; i++) {
-    if (lista2.includes(lista1[i])) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
 function change() {
   const inputValue = document.querySelector("#nome");
   const java = document.querySelector("#java");
@@ -86,7 +58,7 @@ function change() {
             .normalize("NFD")
             .toLowerCase()
             .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-          comparaArrayAnd(row.linguagensLista, linguagensSearch)
+          linguagensSearch.every((e) => row.linguagensLista.includes(e))
         );
       } else if (opcao === "OU") {
         return (
@@ -94,7 +66,7 @@ function change() {
             .normalize("NFD")
             .toLowerCase()
             .indexOf(nome.normalize("NFD").toLowerCase()) > -1 &&
-          comparaArrayOr(row.linguagensLista, linguagensSearch)
+          linguagensSearch.some((e) => row.linguagensLista.includes(e))
         );
       }
     })
