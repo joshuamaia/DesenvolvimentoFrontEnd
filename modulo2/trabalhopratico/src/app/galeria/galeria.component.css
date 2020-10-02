@@ -1,0 +1,36 @@
+.galeria {
+  min-height: 68vh;
+  position: relative;
+  -webkit-print-color-adjust: exact;
+}
+
+.label-fotos {
+  font-size: 20px;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem {
+  width: 400px;
+  height: auto;
+}
+
+.imagem-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botoes-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botoes {
+  margin: 5px;
+}
