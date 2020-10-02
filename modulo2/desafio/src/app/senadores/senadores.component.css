@@ -1,0 +1,19 @@
+.senadores {
+  min-height: 68vh;
+  position: relative;
+  -webkit-print-color-adjust: exact;
+}
+
+.acoes {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.visualizar {
+  color: #fff;
+}
+
+.header {
+  font-size: 30px;
+}

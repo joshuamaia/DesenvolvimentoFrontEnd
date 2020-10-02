@@ -1,0 +1,67 @@
+<div class="container senadores">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead class="text-primary">
+        <tr>
+          <th class="header" colspan="2">
+            Resumo das despesas - {{ nomeSenador }}
+            <a
+              (click)="voltar()"
+              class="btn btn-link btn-primary btn-just-icon mr-2 visualizar"
+              ><i class="fa fa-backward"></i> Voltar</a
+            >
+          </th>
+        </tr>
+        <tr>
+          <th>Tipo de Despesa</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detalhe of despesasResumo.entries()">
+          <td>
+            {{ detalhe[0] | tipos }}
+          </td>
+          <td>
+            {{ detalhe[1] | currency: "BRL":true }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead class="text-primary">
+        <tr>
+          <th class="header" colspan="2">
+            Discriminação das despesas - {{ nomeSenador }}
+          </th>
+        </tr>
+        <tr>
+          <th>Tipo de Despesa</th>
+          <th>Fornecedor</th>
+          <th>Data</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let despesa of despesas">
+          <td>
+            {{ despesa.tipo | tipos }}
+          </td>
+          <td>
+            {{ despesa.fornec }}
+          </td>
+          <td>
+            {{ despesa.dia < 10 ? "0" + despesa.dia : despesa.dia }}/{{
+              despesa.dia < 10 ? "0" + despesa.mes : despesa.dia
+            }}/{{ despesa.ano }}
+          </td>
+          <td>
+            {{ despesa.valor | currency: "BRL":true }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

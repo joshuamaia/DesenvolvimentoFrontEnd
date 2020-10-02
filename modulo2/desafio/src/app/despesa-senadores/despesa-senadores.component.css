@@ -1,0 +1,13 @@
+.senadores {
+  min-height: 68vh;
+  position: relative;
+  -webkit-print-color-adjust: exact;
+}
+
+.visualizar {
+  color: #fff;
+}
+
+.header {
+  font-size: 30px;
+}
