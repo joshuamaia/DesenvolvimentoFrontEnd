@@ -5,6 +5,7 @@ import { SenadoresComponent } from './senadores/senadores.component';
 
 const routes: Routes = [
   { path: 'senadores', component: SenadoresComponent },
+  { path: '', redirectTo: 'senadores', pathMatch: 'full' },
   { path: 'senadores/:id/despesa', component: DespesaSenadoresComponent },
 ];
 

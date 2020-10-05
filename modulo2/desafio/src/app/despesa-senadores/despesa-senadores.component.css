@@ -1,7 +1,18 @@
 .senadores {
   min-height: 68vh;
   position: relative;
+  background: #fff !important;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 4px #4b0082;
   -webkit-print-color-adjust: exact;
+}
+
+.tabelas {
+  box-shadow: 0 0 4px 4px #4b0082;
+}
+
+.div-container {
+  padding: 15px;
 }
 
 .visualizar {
@@ -10,4 +21,5 @@
 
 .header {
   font-size: 30px;
+  text-align: center;
 }

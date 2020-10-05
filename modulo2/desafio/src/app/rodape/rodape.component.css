@@ -11,6 +11,7 @@
   background: #220b5e;
   background-image: linear-gradient(to top, #220b5e, #220b5e);
   color: white;
+  margin-top: 10px;
 
   -webkit-print-color-adjust: exact;
 }
