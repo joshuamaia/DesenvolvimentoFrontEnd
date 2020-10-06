@@ -1,46 +1,51 @@
 <div class="container galeria">
   <h1 class="titulo">{{ titulo }}</h1>
   <form>
-    <div class="row imagem-layout">
-      <img class="imagem" [src]="imagem" />
-    </div>
-    <div class="row botoes-layout">
-      <span class="label-fotos"
-        >Foto {{ index + 1 }} de {{ fotos.length }}
-      </span>
+    <div *ngIf="fotos.length">
+      <div class="row imagem-layout">
+        <img class="imagem" [src]="imagem" />
+      </div>
+      <div class="row botoes-layout">
+        <span class="label-fotos"
+          >Foto {{ index + 1 }} de {{ fotos.length }}
+        </span>
 
-      <button
-        (click)="backwardFast()"
-        type="button"
-        class="btn btn-primary botoes"
-        [disabled]="desabilitaBackward()"
-      >
-        <i class="fa fa-fast-backward"></i>
-      </button>
-      <button
-        (click)="backward()"
-        type="button"
-        class="btn btn-primary botoes"
-        [disabled]="desabilitaBackward()"
-      >
-        <i class="fa fa-backward"></i>
-      </button>
-      <button
-        (click)="forward()"
-        type="button"
-        class="btn btn-primary botoes"
-        [disabled]="desabilitaForward()"
-      >
-        <i class="fa fa-forward"></i>
-      </button>
-      <button
-        (click)="forwardFast()"
-        type="button"
-        class="btn btn-primary botoes"
-        [disabled]="desabilitaForward()"
-      >
-        <i class="fa fa-fast-forward"></i>
-      </button>
+        <button
+          (click)="backwardFast()"
+          type="button"
+          class="btn btn-primary botoes"
+          [disabled]="desabilitaBackward()"
+        >
+          <i class="fa fa-fast-backward"></i>
+        </button>
+        <button
+          (click)="backward()"
+          type="button"
+          class="btn btn-primary botoes"
+          [disabled]="desabilitaBackward()"
+        >
+          <i class="fa fa-backward"></i>
+        </button>
+        <button
+          (click)="forward()"
+          type="button"
+          class="btn btn-primary botoes"
+          [disabled]="desabilitaForward()"
+        >
+          <i class="fa fa-forward"></i>
+        </button>
+        <button
+          (click)="forwardFast()"
+          type="button"
+          class="btn btn-primary botoes"
+          [disabled]="desabilitaForward()"
+        >
+          <i class="fa fa-fast-forward"></i>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="!fotos.length">
+      <h1 class="titulo">Nenhuma foto a ser exibida</h1>
     </div>
   </form>
 </div>

@@ -14,7 +14,7 @@ export class GaleriaComponent implements OnInit {
   public index: number = 0;
 
   @Input()
-  public fotos = [];
+  public fotos: string[] = [];
 
   constructor() {}
 
