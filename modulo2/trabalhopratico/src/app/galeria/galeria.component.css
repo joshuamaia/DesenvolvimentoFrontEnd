@@ -1,6 +1,11 @@
 .galeria {
   min-height: 68vh;
   position: relative;
+  background: #fff !important;
+  padding: 15px;
+  box-shadow: 0 0 4px 4px #4b0082;
+
+  border-radius: 8px;
   -webkit-print-color-adjust: exact;
 }
 
@@ -12,11 +17,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border-radius: 8px;
+  margin: 10px 0px;
+
+  background: #4b0082;
+  box-shadow: 0 0 4px 4px #add8e6;
+  color: #fff;
 }
 
 .imagem {
-  width: 400px;
-  height: auto;
+  border-radius: 8px;
+  max-height: 500px;
 }
 
 .imagem-layout {

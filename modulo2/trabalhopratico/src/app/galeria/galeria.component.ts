@@ -9,8 +9,6 @@ export class GaleriaComponent implements OnInit {
   @Input()
   public titulo: string;
 
-  public imagem: string = '';
-
   public index: number = 0;
 
   @Input()
@@ -18,9 +16,7 @@ export class GaleriaComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.imagem = this.fotos[0];
-  }
+  ngOnInit(): void {}
 
   desabilitaBackward() {
     return this.index === 0;
@@ -32,21 +28,17 @@ export class GaleriaComponent implements OnInit {
 
   backward() {
     this.index--;
-    this.imagem = this.fotos[this.index];
   }
 
   forwardFast() {
     this.index = this.fotos.length - 1;
-    this.imagem = this.fotos[this.index];
   }
 
   backwardFast() {
     this.index = 0;
-    this.imagem = this.fotos[this.index];
   }
 
   forward() {
     this.index++;
-    this.imagem = this.fotos[this.index];
   }
 }

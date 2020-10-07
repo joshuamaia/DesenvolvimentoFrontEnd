@@ -1,9 +1,9 @@
-<div class="container galeria">
+<div class="container">
   <h1 class="titulo">{{ titulo }}</h1>
   <form>
-    <div *ngIf="fotos.length">
+    <div class="galeria" *ngIf="fotos.length">
       <div class="row imagem-layout">
-        <img class="imagem" [src]="imagem" />
+        <img class="imagem" [src]="fotos[index]" />
       </div>
       <div class="row botoes-layout">
         <span class="label-fotos"
