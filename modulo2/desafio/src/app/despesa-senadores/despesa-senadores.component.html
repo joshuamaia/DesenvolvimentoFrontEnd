@@ -1,14 +1,14 @@
 <div class="container senadores">
   <div class="row">
     <div class="table-responsive div-container">
-      <table class="table table-striped table-hover tabelas">
-        <thead class="text-primary">
+      <table class="table table-striped tabelas">
+        <thead class="header-label">
           <tr>
             <th class="header" colspan="2">
               Resumo das despesas - {{ nomeSenador }}
               <a
                 (click)="voltar()"
-                class="btn btn-link btn-primary btn-just-icon ml-4 visualizar"
+                class="btn btn-link btn-primary btn-just-icon ml-4 botoes"
                 ><i class="fa fa-backward"></i> Voltar</a
               >
             </th>
@@ -19,7 +19,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let detalhe of despesasResumo.entries()">
+          <tr
+            [ngClass]="{ 'header-container': detalhe[0] == 8 }"
+            *ngFor="let detalhe of despesasResumo.entries()"
+          >
             <td>
               {{ detalhe[0] | tipos }}
             </td>
@@ -34,7 +37,7 @@
   <div class="row">
     <div class="table-responsive div-container">
       <table class="table table-striped table-hover tabelas">
-        <thead class="text-primary">
+        <thead class="header-label">
           <tr>
             <th class="header" colspan="4">
               Discriminação das despesas - {{ nomeSenador }}
