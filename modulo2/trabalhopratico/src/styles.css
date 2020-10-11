@@ -1,5 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  background: #9370db !important;
+  background: #7b68ee !important;
+}
+
+.botoes {
+  background-color: #191970 !important;
+  border: 2px solid #add8e6 !important;
+  color: #fff !important;
+  margin: 5px;
+}
+
+.botoes:hover {
+  background-color: #add8e6 !important;
+  border: 2px solid #191970 !important;
+  color: #191970 !important;
+  margin: 5px;
 }

@@ -1,8 +1,9 @@
 .galeria {
   min-height: 68vh;
   position: relative;
-  background: #fff !important;
+  background: #7b68ee !important;
   padding: 15px;
+
   box-shadow: 0 0 4px 4px #4b0082;
 
   border-radius: 8px;
@@ -10,7 +11,8 @@
 }
 
 .label-fotos {
-  font-size: 20px;
+  font-size: 25px;
+  color: #add8e6;
 }
 
 .titulo {
@@ -29,6 +31,7 @@
 .imagem {
   border-radius: 8px;
   max-height: 500px;
+  box-shadow: 0 0 4px 4px #4b0082;
 }
 
 .imagem-layout {
@@ -44,5 +47,5 @@
 }
 
 .botoes {
-  margin: 5px;
+  margin: 10px 5px;
 }
