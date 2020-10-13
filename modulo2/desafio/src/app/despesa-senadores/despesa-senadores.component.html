@@ -7,7 +7,7 @@
             <th class="header" colspan="2">
               Resumo das despesas - {{ nomeSenador }}
               <a
-                (click)="voltar()"
+                routerLink="/senadores"
                 class="btn btn-link btn-primary btn-just-icon ml-4 botoes"
                 ><i class="fa fa-backward"></i> Voltar</a
               >
@@ -20,14 +20,14 @@
         </thead>
         <tbody>
           <tr
-            [ngClass]="{ 'header-container': detalhe[0] == 8 }"
-            *ngFor="let detalhe of despesasResumo.entries()"
+            [ngClass]="{ 'header-container': detalhe.key == 8 }"
+            *ngFor="let detalhe of despesasResumo | keyvalue"
           >
             <td>
-              {{ detalhe[0] | tipos }}
+              {{ detalhe.key | tipos }}
             </td>
             <td>
-              {{ detalhe[1] | currency: "BRL":true }}
+              {{ detalhe.value | currency: "BRL":true }}
             </td>
           </tr>
         </tbody>

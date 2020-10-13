@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SenadoresService } from '../senadores/senadores.service';
+import { SenadoresService, TIPOS } from '../senadores/senadores.service';
 
 @Component({
   selector: 'app-despesa-senadores',
@@ -14,13 +14,12 @@ export class DespesaSenadoresComponent implements OnInit {
 
   constructor(
     private router: ActivatedRoute,
-    private senadoresService: SenadoresService,
-    private routerBack: Router
+    private senadoresService: SenadoresService
   ) {}
 
   ngOnInit(): void {
-    for (let i = 1; i <= 8; i++) {
-      this.despesasResumo.set(i, 0);
+    for (var [key, value] of TIPOS) {
+      this.despesasResumo.set(key, 0);
     }
 
     this.router.paramMap.subscribe((response) => {
@@ -39,9 +38,5 @@ export class DespesaSenadoresComponent implements OnInit {
           });
         });
     });
-  }
-
-  voltar() {
-    this.routerBack.navigate(['senadores']);
   }
 }
