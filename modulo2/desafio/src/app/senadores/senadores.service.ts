@@ -14,7 +14,6 @@ TIPOS.set(
 );
 TIPOS.set(6, 'Locomoção, hospedagem, alimentação e combustíveis');
 TIPOS.set(7, 'Serviço de Segurança Privada');
-TIPOS.set(8, 'Total');
 
 @Injectable({
   providedIn: 'root',

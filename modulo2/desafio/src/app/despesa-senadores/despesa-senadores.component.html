@@ -19,15 +19,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            [ngClass]="{ 'header-container': detalhe.key == 8 }"
-            *ngFor="let detalhe of despesasResumo | keyvalue"
-          >
+          <tr *ngFor="let detalhe of despesasResumo | keyvalue">
             <td>
               {{ detalhe.key | tipos }}
             </td>
             <td>
               {{ detalhe.value | currency: "BRL":true }}
+            </td>
+          </tr>
+          <tr class="header-container">
+            <td>Total</td>
+            <td>
+              {{ total | currency: "BRL":true }}
             </td>
           </tr>
         </tbody>

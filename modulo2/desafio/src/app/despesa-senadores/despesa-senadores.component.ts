@@ -11,6 +11,7 @@ export class DespesaSenadoresComponent implements OnInit {
   public despesasResumo: Map<number, number> = new Map<number, number>();
   public nomeSenador: string = '';
   public despesas = [];
+  public total: number = 0;
 
   constructor(
     private router: ActivatedRoute,
@@ -34,7 +35,7 @@ export class DespesaSenadoresComponent implements OnInit {
               d.tipo,
               this.despesasResumo.get(d.tipo) + d.valor
             );
-            this.despesasResumo.set(8, this.despesasResumo.get(8) + d.valor);
+            this.total += d.valor;
           });
         });
     });
