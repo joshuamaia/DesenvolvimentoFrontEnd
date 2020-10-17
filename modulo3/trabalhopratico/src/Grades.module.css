@@ -1,0 +1,21 @@
+.labels {
+  color: #fff;
+  font-size: 16px;
+}
+
+.notabaixa {
+  color: #ffc0cb;
+}
+
+.notaalta {
+  color: #00ff00;
+}
+
+.calculos {
+  margin: 20px;
+}
+
+.notas {
+  box-shadow: 0 0 4px 4px #add8e6;
+  padding: 20px;
+}
