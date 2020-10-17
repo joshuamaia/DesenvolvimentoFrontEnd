@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import css from "./Grades.module.css";
+import Calculos from "./Calculos";
 
 export default class Grades extends Component {
   constructor() {
@@ -27,31 +28,6 @@ export default class Grades extends Component {
     //console.log(this.state.grades);
   }
 
-  somaNotas() {
-    const somaNotas = this.state.grades.reduce((acc, g) => {
-      return Number(acc) + Number(g.nota);
-    }, 0);
-
-    return somaNotas;
-  }
-
-  percentualTotal() {
-    return this.somaNotas() / this.state.grades.length;
-  }
-
-  aprovado60Porcento() {
-    for (let i = 0; i < this.state.grades.length; i++) {
-      if (this.state.grades[i].nota < 60) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  aprovado70Porcento() {
-    return this.percentualTotal() >= 70;
-  }
-
   render() {
     return (
       <div className="container">
@@ -64,7 +40,7 @@ export default class Grades extends Component {
                 </span>
 
                 <div className="row">
-                  <div className="col s6">
+                  <div className="col s12 m6">
                     <h3>Notas Atuais</h3>
                     <div className={css.notas}>
                       {this.state.grades.map((g) => {
@@ -89,36 +65,9 @@ export default class Grades extends Component {
                       })}
                     </div>
                   </div>
-                  <div className="col s6">
+                  <div className="col s12 m6">
                     <h3>Cálculos</h3>
-                    <div className={css.notas}>
-                      <p>Nota total: {this.somaNotas()}</p>
-                      <p>Percentual total: {this.percentualTotal()}</p>
-                      <p>
-                        Aprovação pela média (60%):{" "}
-                        <span
-                          className={
-                            !this.aprovado60Porcento()
-                              ? css.notabaixa
-                              : css.notaalta
-                          }
-                        >
-                          {this.aprovado60Porcento() ? "Sim" : "Não"}
-                        </span>
-                      </p>
-                      <p>
-                        Aprovado pelo percentual total (70%):{" "}
-                        <span
-                          className={
-                            !this.aprovado70Porcento()
-                              ? css.notabaixa
-                              : css.notaalta
-                          }
-                        >
-                          {this.aprovado70Porcento() ? "Sim" : "Não"}
-                        </span>
-                      </p>
-                    </div>
+                    <Calculos grades={this.state.grades} />
                   </div>
                 </div>
               </div>
