@@ -30,9 +30,11 @@ export default class Calculos extends Component {
   render() {
     return (
       <div className={css.notas}>
-        <p>Nota total: {this.somaNotas()}</p>
-        <p>Percentual total: {this.percentualTotal()}</p>
-        <p>
+        <p className={css.labelsCalculos}>Nota total: {this.somaNotas()}</p>
+        <p className={css.labelsCalculos}>
+          Percentual total: {this.percentualTotal()}%
+        </p>
+        <p className={css.labelsCalculos}>
           Aprovação pela média (60%):{" "}
           <span
             className={
@@ -42,7 +44,7 @@ export default class Calculos extends Component {
             {this.aprovado60Porcento() ? "Sim" : "Não"}
           </span>
         </p>
-        <p>
+        <p className={css.labelsCalculos}>
           Aprovado pelo percentual total (70%):{" "}
           <span
             className={

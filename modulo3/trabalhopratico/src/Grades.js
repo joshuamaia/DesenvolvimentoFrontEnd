@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import css from "./Grades.module.css";
 import Calculos from "./Calculos";
+import Grade from "./Grade";
 
 export default class Grades extends Component {
   constructor() {
@@ -16,57 +17,53 @@ export default class Grades extends Component {
     };
   }
 
-  handleChange(id, nota) {
-    const gradesUpdate = this.state.grades;
+  handleChange = (id, nota) => {
+    const { grades } = this.state;
 
-    gradesUpdate[id] = { ...gradesUpdate[id], nota: nota };
+    grades[id] = { ...grades[id], nota: nota };
 
     this.setState({
-      grades: gradesUpdate,
+      grades: grades,
     });
-
-    //console.log(this.state.grades);
-  }
+  };
 
   render() {
     return (
       <div className="container">
         <div className="row">
           <form className="col s12">
-            <div className="card blue-grey darken-2">
-              <div className="card-content white-text">
-                <span className="card-title center-align">
+            <div className="card blue darken-4">
+              <div className="card-content white-text text-darken-4">
+                <span
+                  style={{
+                    fontSize: "36px",
+                    fontWeight: "bold",
+                    background: "#212529",
+                    padding: "10px",
+                    borderRadius: "5px",
+                  }}
+                  className="card-title center-align"
+                >
                   Controle de Notas do Bootcamp do IGTI com React
                 </span>
 
                 <div className="row">
                   <div className="col s12 m6">
-                    <h3>Notas Atuais</h3>
+                    <h3 className={css.titulos}>Notas Atuais</h3>
                     <div className={css.notas}>
                       {this.state.grades.map((g) => {
                         return (
-                          <div key={String(g.id)} className="row">
-                            <label className={css.labels}>{g.descricao}</label>
-                            <input
-                              className={
-                                g.nota < 60 ? css.notabaixa : css.notaalta
-                              }
-                              id={g.id}
-                              value={g.nota}
-                              type="number"
-                              min="0"
-                              max="100"
-                              onChange={(e) =>
-                                this.handleChange(g.id, e.target.value)
-                              }
-                            />
-                          </div>
+                          <Grade
+                            key={String(g.id)}
+                            g={g}
+                            handleChange={this.handleChange}
+                          />
                         );
                       })}
                     </div>
                   </div>
                   <div className="col s12 m6">
-                    <h3>Cálculos</h3>
+                    <h3 className={css.titulos}>Cálculos</h3>
                     <Calculos grades={this.state.grades} />
                   </div>
                 </div>
