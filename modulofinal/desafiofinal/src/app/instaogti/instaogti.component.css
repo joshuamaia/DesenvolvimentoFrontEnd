@@ -1,0 +1,28 @@
+.insta {
+  min-height: 68vh;
+  position: relative;
+  background: #fff !important;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 4px #4b0082;
+  -webkit-print-color-adjust: exact;
+}
+
+.imagem {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.imagem-comments {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.imagem-posts {
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+}

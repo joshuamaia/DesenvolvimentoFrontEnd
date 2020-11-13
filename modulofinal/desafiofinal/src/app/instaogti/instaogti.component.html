@@ -1,0 +1,58 @@
+<div class="container insta">
+  <div style="display: flex; justify-content: center">
+    <div>
+      <img
+        style="border: 2px solid #fff"
+        class="imagem"
+        src="../../assets/{{ superheroi }}.png"
+      />
+    </div>
+    <div style="display: flex; flex-direction: column">
+      <strong>{{ superheroi }}</strong>
+      <span>{{ allPostsSize }} Posts</span>
+      <span>{{ allLikesSize }} Curtidas</span>
+      <span>{{ allCommentsSize }} Comentários</span>
+    </div>
+  </div>
+  <div
+    *ngFor="let post of allPosts"
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      flex-direction: row;
+    "
+  >
+    <div>
+      <img
+        style="border: 2px solid #fff"
+        class="imagem-posts"
+        src="{{ post.picture }}"
+      />
+    </div>
+    <div style="display: flex; flex-direction: column">
+      <div>
+        <img
+          style="border: 2px solid #fff"
+          class="imagem"
+          src="../../assets/{{ superheroi }}.png"
+        />
+        <strong>{{ superheroi }}</strong> {{ post.title }}
+      </div>
+      <span
+        ><i class="fa fa-thumbs-up" aria-hidden="true"></i>
+        {{ post.likes.length }}
+        <i class="fa fa-comments" aria-hidden="true"></i>
+        {{ post.comments.length }}</span
+      >
+      <div *ngFor="let comment of post.comments">
+        <img
+          style="border: 2px solid #fff"
+          class="imagem-comments"
+          src="../../assets/{{ comment.user }}.png"
+        />
+        <strong>{{ comment.user }}</strong> {{ comment.comment }}
+      </div>
+    </div>
+  </div>
+</div>

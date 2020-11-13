@@ -1,0 +1,107 @@
+.topo {
+  background: #220b5e;
+  background-image: linear-gradient(to bottom, #220b5e, #220b5e);
+
+  border-bottom: 2px solid #b0e2ff;
+  color: #fff;
+  background-size: 100% 100%;
+  height: 100px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  -webkit-print-color-adjust: exact;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #b0e0e6;
+}
+
+.covidBackground,
+.covidBackground:active {
+  border-color: #fff !important;
+  background: #191970;
+  background-image: linear-gradient(to bottom, #220b5e, #220b5e);
+}
+
+.covidBackground,
+.covidBackground:active {
+  border-color: #fff !important;
+  background: #191970;
+  background-image: linear-gradient(to bottom, #220b5e, #220b5e);
+}
+
+.curriculoBackground,
+.curriculoBackground:active {
+  border-color: #fff !important;
+  background: #191970;
+  background-image: linear-gradient(to bottom, #220b5e, #220b5e);
+}
+
+.menuCurriculo {
+  color: #220b5e;
+}
+
+.menuCurriculoLi:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #220b5e;
+}
+
+.menuCovid {
+  color: #220b5e;
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #6a5acd;
+  box-shadow: 0 0 2px 2px #b0e2ff;
+  height: 52px;
+  margin-bottom: 10px;
+}
+
+.menu {
+  margin-left: 1px;
+}
+
+.menuCovidLi:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #220b5e;
+}
+
+.texto {
+  font-size: 30px;
+}
+
+.imagem {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+@media (max-width: 576px) {
+  .imagem {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .texto {
+    font-size: 16px;
+  }
+
+  .barra {
+    margin-top: 30px;
+  }
+}
