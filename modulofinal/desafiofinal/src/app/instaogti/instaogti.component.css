@@ -7,6 +7,10 @@
   -webkit-print-color-adjust: exact;
 }
 
+.buton-timeline {
+  margin: 5px;
+}
+
 .imagem {
   width: 90px;
   height: 90px;

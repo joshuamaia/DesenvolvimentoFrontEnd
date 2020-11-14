@@ -21,7 +21,21 @@ export class InstaogtiComponent implements OnInit {
 
   constructor(private instaService: InstaService) {}
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
+    this.mudarHeroi('superman');
+  }
+
+  listaLikes(likes: Likes[]) {
+    let likesText = '';
+    likes.forEach((l) => {
+      likesText = likesText + l.user + '\n';
+    });
+    return likesText;
+  }
+
+  async mudarHeroi(heroi: string) {
+    this.superheroi = heroi;
+
     this.allPosts = await this.instaService.getPosts().toPromise();
     this.allComments = await this.instaService.getComments().toPromise();
     this.allLikes = await this.instaService.getLikes().toPromise();
