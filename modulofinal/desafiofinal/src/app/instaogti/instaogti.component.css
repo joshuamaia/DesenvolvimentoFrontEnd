@@ -1,10 +1,21 @@
 .insta {
   min-height: 68vh;
+
   position: relative;
   background: #fff !important;
   border-radius: 5px;
   box-shadow: 0 0 4px 4px #4b0082;
   -webkit-print-color-adjust: exact;
+}
+
+.titulo {
+  font-size: 30px;
+  width: 100%;
+  color: #fff !important;
+  border-radius: 5px;
+  background: #4b0082;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
 .buton-timeline {
@@ -26,7 +37,7 @@
 }
 
 .imagem-posts {
-  width: 300px;
+  width: 100%;
   height: auto;
   margin-right: 20px;
 }

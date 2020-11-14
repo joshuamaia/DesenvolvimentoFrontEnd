@@ -1,8 +1,13 @@
 <div class="container insta">
+  <div class="titulo" style="text-align: center">
+    <span>Movinstagram</span>
+  </div>
   <div style="margin-bottom: 20px">
-    <h1 style="text-align: center">Movinstagram</h1>
-    <div style="display: flex; justify-content: space-between">
-      <div style="display: flex; justify-content: center; align-items: center">
+    <div class="row" style="display: flex; justify-content: space-between">
+      <div
+        class="col-md-3 col-sm-6"
+        style="display: flex; justify-content: center; align-items: center"
+      >
         <div>
           <img
             style="border: 2px solid #fff"
@@ -17,36 +22,48 @@
           <span>{{ allCommentsSize }} Comentários</span>
         </div>
       </div>
-      <div>
+      <div class="col-md-9 col-sm-6">
         <h3 style="text-align: center">Visualizar Timeline com:</h3>
-        <button class="buton-timeline" (click)="mudarHeroi('batman')">
-          <img
-            style="border: 2px solid #fff"
-            class="imagem"
-            src="../../assets/batman.png"
-          />
-          <strong>batman</strong>
-        </button>
-        <button class="buton-timeline" (click)="mudarHeroi('superman')">
-          <img
-            style="border: 2px solid #fff"
-            class="imagem"
-            src="../../assets/superman.png"
-          />
-          <strong>superman</strong>
-        </button>
-        <button class="buton-timeline" (click)="mudarHeroi('wonderWoman')">
-          <img
-            style="border: 2px solid #fff"
-            class="imagem"
-            src="../../assets/wonderWoman.png"
-          />
-          <strong>wonderWoman</strong>
-        </button>
+        <div class="row">
+          <button
+            class="buton-timeline col-md-3 col-sm-6"
+            (click)="mudarHeroi('batman')"
+          >
+            <img
+              style="border: 2px solid #fff"
+              class="imagem"
+              src="../../assets/batman.png"
+            />
+            <strong>batman</strong>
+          </button>
+          <button
+            class="buton-timeline col-md-3 col-sm-6"
+            (click)="mudarHeroi('superman')"
+          >
+            <img
+              style="border: 2px solid #fff"
+              class="imagem"
+              src="../../assets/superman.png"
+            />
+            <strong>superman</strong>
+          </button>
+          <button
+            class="buton-timeline col-md-3 col-sm-6"
+            (click)="mudarHeroi('wonderWoman')"
+          >
+            <img
+              style="border: 2px solid #fff"
+              class="imagem"
+              src="../../assets/wonderWoman.png"
+            />
+            <strong>wonderWoman</strong>
+          </button>
+        </div>
       </div>
     </div>
   </div>
   <div
+    class="row"
     *ngFor="let post of allPosts"
     style="
       width: 100%;
@@ -55,14 +72,17 @@
       flex-direction: row;
     "
   >
-    <div>
+    <div class="col-md-5 col-sm-6">
       <img
         style="border: 2px solid #fff"
         class="imagem-posts"
         src="{{ post.picture }}"
       />
     </div>
-    <div style="display: flex; flex-direction: column">
+    <div
+      class="col-md-7 col-sm-6"
+      style="display: flex; flex-direction: column"
+    >
       <div>
         <img
           style="border: 2px solid #fff"
@@ -78,18 +98,18 @@
           data-placement="top"
           [title]="listaLikes(post.likes)"
           ><i class="fa fa-thumbs-up" aria-hidden="true"></i>
-          {{ post.likes.length }}</span
+          {{ post?.likes?.length }}</span
         ><span>
           <i class="fa fa-comments" aria-hidden="true"></i>
-          {{ post.comments.length }}</span
+          {{ post?.comments?.length }}</span
         >
       </div>
       <div
         style="margin-top: 10px; border: 1px solid #4b0082; border-radius: 5px"
         *ngFor="let comment of post.comments"
       >
-        <div style="display: flex">
-          <div style="width: 40%">
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
             <img
               style="border: 2px solid #fff"
               class="imagem-comments"
@@ -97,7 +117,7 @@
             />
             <strong>{{ comment.user }}</strong>
           </div>
-          <div style="width: 60%">
+          <div class="col-md-8 col-sm-6">
             {{ comment.comment }}
           </div>
         </div>

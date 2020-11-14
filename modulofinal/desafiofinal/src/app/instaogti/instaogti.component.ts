@@ -27,9 +27,11 @@ export class InstaogtiComponent implements OnInit {
 
   listaLikes(likes: Likes[]) {
     let likesText = '';
-    likes.forEach((l) => {
-      likesText = likesText + l.user + '\n';
-    });
+    if (likes) {
+      likes.forEach((l) => {
+        likesText = likesText + l.user + '\n';
+      });
+    }
     return likesText;
   }
 
